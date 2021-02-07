@@ -5,13 +5,15 @@ import Numbers from "../numbers/Numbers";
 import Symbols from "./symbols/Symbols";
 const Calculator = () => {
   const [num, setNum] = useState("");
+  const [start, setStart] = useState(true);
   const [number1, setNumber1] = useState("");
   const [number2, setNumber2] = useState("");
   const [operator, setOperator] = useState("");
   const [result, setResult] = useState("");
 
   const clear = () => {
-    setResult("");
+    setNumber1("")
+    setNumber2("")
     setOperator("");
   };
   const resultHandler = (op) => {
@@ -44,15 +46,18 @@ const Calculator = () => {
   }, [operator]);
   useEffect(() => {
     if (operator === "") {
-      setResult(result + num);
-      setNumber1(result);
+      setNumber1(() => {
+        
+        return number1 + num;
+      });
       setNum("");
-      console.log("number1 is", result);
+      setStart(false)
     } else {
-      setResult(result + num);
-      setNumber2(result);
-      console.log("number2 is", result);
+      setNumber2(() => {
+        return number2 + num;
+      });
       setNum("");
+      setStart(false)
     }
   }, [num]);
 
@@ -60,7 +65,7 @@ const Calculator = () => {
     <div className="calculator">
       <h2>Calculator with React</h2>
       <div className="calculator-content">
-        <Display result={result} />
+        <Display start={start} number1={number1} number2={number2} operator={operator} result={result} />
         <div className="mathSection">
           <Numbers setNum={setNum} num={num} />
           <Symbols operator={operator} setOperator={setOperator} />
