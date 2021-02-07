@@ -6,10 +6,8 @@ const Display = ({ start, number1, number2, operator, result }) => {
   useEffect(() => {
     if (start) {
       labelEl.current.innerText = "0";
-      console.log(start);
     } else {
       if (result === "") {
-        console.log(number1 + " " + operator + " " + number2);
         labelEl.current.innerText = number1 + " " + operator + " " + number2;
       } else {
         labelEl.current.innerText =
@@ -20,9 +18,7 @@ const Display = ({ start, number1, number2, operator, result }) => {
 
   return (
     <div className="display-section">
-      <label ref={labelEl} className="display-section-label">
-        "0"
-      </label>
+      <label ref={labelEl} className="display-section-label"></label>
       <div className="input-group-prepend"></div>
     </div>
   );

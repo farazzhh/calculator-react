@@ -12,10 +12,13 @@ const Calculator = () => {
   const [result, setResult] = useState("");
 
   const clear = () => {
+    setStart(true)
     setNumber1("")
     setNumber2("")
     setOperator("");
+
   };
+
   const resultHandler = (op) => {
     let res = Number;
     switch (op) {
@@ -44,30 +47,32 @@ const Calculator = () => {
   useEffect(() => {
     setResult("");
   }, [operator]);
+
   useEffect(() => {
     if (operator === "") {
       setNumber1(() => {
-        
         return number1 + num;
       });
+      
       setNum("");
-      setStart(false)
     } else {
       setNumber2(() => {
         return number2 + num;
       });
       setNum("");
-      setStart(false)
     }
+    if (num !== "") {
+    setStart(false)
+  }  
   }, [num]);
-
+  
   return (
     <div className="calculator">
       <h2>Calculator with React</h2>
       <div className="calculator-content">
         <Display start={start} number1={number1} number2={number2} operator={operator} result={result} />
         <div className="mathSection">
-          <Numbers setNum={setNum} num={num} />
+          <Numbers setNum={setNum} />
           <Symbols operator={operator} setOperator={setOperator} />
           <div className="right-side-buttons">
             <button onClick={() => resultHandler(operator)} className="result">

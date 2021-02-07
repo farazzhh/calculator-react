@@ -2,7 +2,8 @@ import React from "react";
 const Number = ({ number,setNum }) => {
     
     const clickHanddler = (number) => {
-        setNum(number);
+      setNum(number);
+      
     }
   return (
     <>
