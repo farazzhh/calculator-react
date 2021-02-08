@@ -76,10 +76,10 @@ const Calculator = () => {
           <Symbols operator={operator} setOperator={setOperator} />
           <div className="right-side-buttons">
             <button onClick={() => resultHandler(operator)} className="result">
-              Result
+              =
             </button>
             <button className="clear" onClick={clear}>
-              Clear
+              C
             </button>
           </div>
         </div>

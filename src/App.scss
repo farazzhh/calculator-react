@@ -40,6 +40,7 @@
         .clear {
           width: 100%;
           height: 30%;
+          padding: 0 17px;
           background-color: darkred;
           color: whitesmoke;
           &:active {
@@ -49,6 +50,7 @@
         .result {
           width: 100%;
           height: 70%;
+          padding: 0 17px;
           background-color: darkgreen;
           color: whitesmoke;
           &:active {
@@ -63,9 +65,9 @@
           min-width: 50px;
           height: 50px;
           border: 1px solid lightgray;
-          background-color: lightsalmon;
+          background-color: goldenrod;
           &:active {
-            background-color: salmon;
+            background-color: gold;
           }
         }
       }
