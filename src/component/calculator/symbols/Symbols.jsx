@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import Symbol from "./Symbol";
-const Symbols = ({ operator, setOperator }) => {
+const Symbols = ({ number1 , operator, setOperator }) => {
   const symbols = ["/", "*", "+", "-"];
   const [symbol, setSymbol] = useState("");
   const symbolHandler = (sym) => {
-    setOperator(sym);
+    if (number1 !== "") {
+      
+      setOperator(sym);
+    }
   };
   return (
     <div className="symbols">

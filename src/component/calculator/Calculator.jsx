@@ -49,13 +49,14 @@ const Calculator = () => {
   }, [operator]);
 
   useEffect(() => {
-    if (operator === "") {
+    if (operator === "" ) {
       setNumber1(() => {
         return number1 + num;
       });
       
       setNum("");
-    } else {
+    } else if (operator !== "" && number1 !=="") {
+
       setNumber2(() => {
         return number2 + num;
       });
@@ -73,7 +74,7 @@ const Calculator = () => {
         <Display start={start} number1={number1} number2={number2} operator={operator} result={result} />
         <div className="mathSection">
           <Numbers setNum={setNum} />
-          <Symbols operator={operator} setOperator={setOperator} />
+          <Symbols number1={number1} operator={operator} setOperator={setOperator} />
           <div className="right-side-buttons">
             <button onClick={() => resultHandler(operator)} className="result">
               =

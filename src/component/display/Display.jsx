@@ -19,7 +19,7 @@ const Display = ({ start, number1, number2, operator, result }) => {
   return (
     <div className="display-section">
       <label ref={labelEl} className="display-section-label"></label>
-      <div className="input-group-prepend"></div>
+    
     </div>
   );
 };
